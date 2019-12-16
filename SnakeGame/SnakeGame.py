@@ -240,8 +240,8 @@ def fadeText(surface,string):
     global color , x,y
     quitSkipDetect()
     surface.fill((0,0,0))
-    x = max (x-25,0)
-    y = max (y-5,0)
+    x = max (x-15,0)
+    y = max (y-3,0)
     color = (0,x,y)
     font = pygame.font.SysFont('Papyrus',width//13)    
     text = font.render(string,True,color)
@@ -305,7 +305,8 @@ def main():
     snack = cube(randomSnack(s),color= (0,255,0))
     flag = True
     clock = pygame.time.Clock()
-
+    caption = ('Snake Game made by Khang')
+    pygame.display.set_caption(caption);
     title = "Made by Khang"
     while flag:
         clock.tick(5)
@@ -351,7 +352,7 @@ def main():
                 s.addCube()
                 snack = cube((randomSnack(s)),color= (0,255,0))
             caption = ('Snake Game made by Khang - Score: ' + str(len(s.body)-1))
-            pygame.display.set_caption(('Snake Game made by Khang - Score: ' + str(len(s.body)-1)))
+            pygame.display.set_caption(caption);
             for x in range(len(s.body)):
                 if s.body[x].pos in list(map(lambda z:z.pos, s.body[x+1:])):
                     message_box('You Lost!', 'Play again...')
